@@ -27,7 +27,7 @@
    <properties>
        <revision>2.3.x</revision>
        <changelist>-SNAPSHOT</changelist>
-       <jenkins.version>2.163</jenkins.version>
+       <jenkins.version>2.164.3</jenkins.version>
        <java.level>8</java.level>
        <jaxb-api.version>2.3.0</jaxb-api.version>
    </properties>
