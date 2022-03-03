@@ -9,7 +9,7 @@
     </parent>
     <groupId>io.jenkins.plugins</groupId>
     <artifactId>jaxb</artifactId>
-    <version>${revision}${changelist}</version>
+    <version>${revision}-${changelist}</version>
     <packaging>hpi</packaging>
     <name>JAXB plugin</name>
     <description>Detached packaging for JAXB for more transparent Java 9+ compatibility</description>
@@ -28,7 +28,7 @@
     </scm>
     <properties>
         <revision>2.3.x</revision>
-        <changelist>-SNAPSHOT</changelist>
+        <changelist>999999-SNAPSHOT</changelist>
         <jenkins.version>2.222.4</jenkins.version>
         <java.level>8</java.level>
         <gitHubRepo>jenkinsci/${project.artifactId}-plugin</gitHubRepo>
