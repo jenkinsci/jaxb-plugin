@@ -29,27 +29,56 @@
     <properties>
         <revision>2.3.x</revision>
         <changelist>-SNAPSHOT</changelist>
-        <jenkins.version>2.222.4</jenkins.version>
+        <jenkins.version>2.263.1</jenkins.version>
         <java.level>8</java.level>
         <gitHubRepo>jenkinsci/${project.artifactId}-plugin</gitHubRepo>
     </properties>
 
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.glassfish.jaxb</groupId>
+        <artifactId>jaxb-bom</artifactId>
+        <version>2.3.6</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
   <dependencies>
-    <!-- as step 1 I'm not doing multi-release JAR yet -->
     <dependency>
-      <groupId>javax.xml.bind</groupId>
-      <artifactId>jaxb-api</artifactId>
-      <version>2.3.1</version>
+      <groupId>io.jenkins.plugins</groupId>
+      <artifactId>javax-activation-api</artifactId>
+      <version>1.2.0-2</version>
+    </dependency>
+    <!-- JAXB-API -->
+    <dependency>
+      <groupId>jakarta.xml.bind</groupId>
+      <artifactId>jakarta.xml.bind-api</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.sun.xml.bind</groupId>
-      <artifactId>jaxb-core</artifactId>
-      <version>2.3.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.sun.xml.bind</groupId>
-      <artifactId>jaxb-impl</artifactId>
-      <version>2.3.5</version>
+      <groupId>org.glassfish.jaxb</groupId>
+      <artifactId>jaxb-runtime</artifactId>
+      <exclusions>
+        <!--
+          "org.glassfish.jaxb:jaxb-runtime:jar:2.3.6" depends on
+          "com.sun.activation:jakarta.activation:jar:1.2.2", which contains 11
+          classes in the "com.sun.activation.*" package namespace and 31 classes
+          in the "javax.activation.*" package namespace. These classes, in the
+          identical package namespaces, are provided by the
+          "javax-activation-api" plugin.
+
+          If a future version of "org.glassfish.jaxb:jaxb-runtime" upgrades its
+          dependency on "com.sun.activation:jakarta.activation" to one that
+          contains classes in different package namespaces, then this exclusion
+          should be removed.
+        -->
+        <exclusion>
+          <groupId>com.sun.activation</groupId>
+          <artifactId>jakarta.activation</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
   </dependencies>
 
