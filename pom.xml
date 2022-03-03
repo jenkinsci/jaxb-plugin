@@ -58,11 +58,11 @@
       <artifactId>jakarta.xml.bind-api</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.glassfish.jaxb</groupId>
-      <artifactId>jaxb-runtime</artifactId>
+      <groupId>com.sun.xml.bind</groupId>
+      <artifactId>jaxb-impl</artifactId>
       <exclusions>
         <!--
-          "org.glassfish.jaxb:jaxb-runtime:jar:2.3.6" depends on
+          "com.sun.xml.bind:jaxb-impl:jar:2.3.6" depends on
           "com.sun.activation:jakarta.activation:jar:1.2.2", which contains 11
           classes in the "com.sun.activation.*" package namespace and 31 classes
           in the "javax.activation.*" package namespace. These classes, in the
