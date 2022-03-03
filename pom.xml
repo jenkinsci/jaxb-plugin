@@ -69,7 +69,7 @@
           identical package namespaces, are provided by the
           "javax-activation-api" plugin.
 
-          If a future version of "org.glassfish.jaxb:jaxb-runtime" upgrades its
+          If a future version of "com.sun.xml.bind:jaxb-impl" upgrades its
           dependency on "com.sun.activation:jakarta.activation" to one that
           contains classes in different package namespaces, then this exclusion
           should be removed.
