@@ -10,3 +10,10 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    ignore:
+      # Starting with version 3.0.0, this library uses a different package namespace.
+      - dependency-name: "com.sun.xml.bind:jaxb-core"
+        versions: [">=3.0.0"]
+      # Starting with version 3.0.0, this library uses a different package namespace.
+      - dependency-name: "com.sun.xml.bind:jaxb-impl"
+        versions: [">=3.0.0"]
