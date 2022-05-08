@@ -67,6 +67,11 @@
           <groupId>com.sun.activation</groupId>
           <artifactId>jakarta.activation</artifactId>
         </exclusion>
+        <!-- Provided by javax.xml.bind:jaxb-api -->
+        <exclusion>
+          <groupId>jakarta.xml.bind</groupId>
+          <artifactId>jakarta.xml.bind-api</artifactId>
+        </exclusion>
       </exclusions>
     </dependency>
   </dependencies>
