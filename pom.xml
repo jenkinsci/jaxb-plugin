@@ -29,7 +29,7 @@
     <properties>
         <revision>2.3.6-2</revision>
         <changelist>-SNAPSHOT</changelist>
-        <jenkins.version>2.263.1</jenkins.version>
+        <jenkins.version>2.332.1</jenkins.version>
         <gitHubRepo>jenkinsci/${project.artifactId}-plugin</gitHubRepo>
     </properties>
 
