@@ -10,7 +10,7 @@
 
   <groupId>io.jenkins.plugins</groupId>
   <artifactId>jaxb</artifactId>
-  <version>${revision}${changelist}</version>
+  <version>${revision}-${changelist}</version>
   <packaging>hpi</packaging>
   <name>JAXB plugin</name>
   <description>Detached packaging for JAXB for more transparent Java 9+ compatibility</description>
@@ -31,8 +31,8 @@
   </scm>
 
   <properties>
-    <revision>2.3.9-2</revision>
-    <changelist>-SNAPSHOT</changelist>
+    <revision>2.3.9</revision>
+    <changelist>999999-SNAPSHOT</changelist>
     <!-- https://www.jenkins.io/doc/developer/plugin-development/choosing-jenkins-baseline/ -->
     <jenkins.baseline>2.479</jenkins.baseline>
     <jenkins.version>${jenkins.baseline}.1</jenkins.version>
@@ -56,7 +56,7 @@
     <dependency>
       <groupId>com.sun.xml.bind</groupId>
       <artifactId>jaxb-impl</artifactId>
-      <version>2.3.9</version>
+      <version>${revision}</version>
       <exclusions>
         <!-- Provided by javax-activation-api plugin -->
         <exclusion>
