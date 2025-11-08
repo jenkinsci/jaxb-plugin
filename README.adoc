@@ -9,6 +9,4 @@ so that the plugin does not fail to link.
 A plugin using the JAXB API built against the 2.164.x or newer LTS line
 should declare an explicit dependency on this library plugin.
 
-See the link:CHANGELOG.adoc[CHANGELOG].
-
-See its plugins' website page on https://plugins.jenkins.io/jaxb
+Refer to the link:https://plugins.jenkins.io/jaxb/[plugin website] for the link:https://plugins.jenkins.io/jaxb/releases/[release history].
