@@ -33,7 +33,7 @@ public class JAXBContextTest {
         book.setId(1L);
         book.setName("Guide to JAXB");
         JAXBContext context;
-        try (SetContextClassLoader sccl = new SetContextClassLoader(RealJenkinsRule.Endpoint.class)) {
+        try (SetContextClassLoader sccl = new SetContextClassLoader(r.getPluginManager().uberClassLoader)) {
             context = JAXBContext.newInstance(Book.class);
         }
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
