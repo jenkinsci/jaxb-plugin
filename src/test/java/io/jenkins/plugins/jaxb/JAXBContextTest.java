@@ -2,7 +2,7 @@ package io.jenkins.plugins.jaxb;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -13,19 +13,19 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import jenkins.util.SetContextClassLoader;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
 import org.jvnet.hudson.test.JenkinsRule;
-import org.jvnet.hudson.test.RealJenkinsRule;
+import org.jvnet.hudson.test.junit.jupiter.RealJenkinsExtension;
 
-public class JAXBContextTest {
+class JAXBContextTest {
 
-    @Rule
-    public RealJenkinsRule rr = new RealJenkinsRule();
+    @RegisterExtension
+    private final RealJenkinsExtension jenkins = new RealJenkinsExtension();
 
     @Test
-    public void smokes() throws Throwable {
-        rr.then(JAXBContextTest::_smokes);
+    void smokes() throws Throwable {
+        jenkins.then(JAXBContextTest::_smokes);
     }
 
     private static void _smokes(JenkinsRule r) throws Throwable {
@@ -38,7 +38,7 @@ public class JAXBContextTest {
         }
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         context.createMarshaller().marshal(book, baos);
-        String xml = baos.toString(StandardCharsets.US_ASCII.name());
+        String xml = baos.toString(StandardCharsets.US_ASCII);
         assertThat(xml, containsString("<book id=\"1\"><title>Guide to JAXB</title></book>"));
         Book book2 = (Book) context.createUnmarshaller()
                 .unmarshal(new ByteArrayInputStream(xml.getBytes(StandardCharsets.US_ASCII)));
